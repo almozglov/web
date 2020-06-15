@@ -6,6 +6,14 @@
 <body>
 	<h1>Hi there!</h1>
 	<p>It works!</p>
+	{%  for i in posts %}
+	<hr>
+	<div>
+		<p>Author: {{ i.author }}</p>
+		<h3>{{ i.title }}</h3>
+		<p>{{ i.text }}</p>
+	{% endfor %}
+	<hr>
 	<p>Божечки-кошечки</p>
 </body>
 </html>
