@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>My 1st Page!</title>
-</head>
-<body>
-	<h1>Hi there!</h1>
-	<p>It works!</p>
-	<a href="/admin/">Admin btn</a>
-	{%  for i in posts %}
-	<hr>
-	<div>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	{%  for i in posts %}	
+		<hr>
 		<p>Author: {{ i.author }}</p>
-		<h3>{{ i.title }}</h3>
-		<p>{{ i.text }}</p>
+		<a href="{% url 'post_details' pk=i.pk %}"><h3 class='title'>{{ i.title }}</h3></a>
+		<p>{{ i.text | linebreaksbr  }}</p>
 	{% endfor %}
-	<hr>
-	<p>Божечки-кошечки</p>
-</body>
-</html>
+{% endblock %}
